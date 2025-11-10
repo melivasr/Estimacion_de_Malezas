@@ -1,3 +1,17 @@
+"""
+Código para aumentar la cantidad de imágenes de pastos usando Albumentations.
+
+1. Busca todas las subcarpetas de clases dentro de ROOT_DIR.
+2. Para cada imagen, aplica transformaciones de aumento:
+   - RandomResizedCrop
+   - HorizontalFlip
+   - ShiftScaleRotate
+   - RandomBrightnessContrast
+3. Guarda las nuevas imágenes en la misma carpeta con sufijo `_augN`.
+4. Devuelve el total de imágenes creadas.
+
+"""
+
 from pathlib import Path
 from typing import List, Set
 import cv2

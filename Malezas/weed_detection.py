@@ -1,3 +1,13 @@
+"""
+Script de entrenamiento y predicción para detección de malezas usando YOLO y Roboflow.
+
+Este script realiza los siguientes pasos:
+1. Conecta con Roboflow y descarga el dataset.
+2. Carga un modelo YOLO base.
+3. Entrena el modelo con el dataset descargado.
+4. Realiza predicciones sobre una imagen de prueba y muestra el resultado.
+"""
+
 from roboflow import Roboflow
 from ultralytics import YOLO
 import cv2

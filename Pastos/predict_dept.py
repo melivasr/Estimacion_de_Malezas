@@ -1,3 +1,13 @@
+"""
+Código para estimación de profundidad de imágenes usando Transformers (Intel/dpt-large).
+
+1. Busca todas las imágenes en la carpeta INPUT_DIR.
+2. Crea un pipeline de estimación de profundidad usando el modelo especificado.
+3. Calcula mapas de profundidad normalizados para cada imagen.
+4. Aplica un colormap para visualización.
+5. Guarda los resultados en OUTPUT_DIR.
+"""
+
 import os
 from pathlib import Path
 from typing import List, Tuple

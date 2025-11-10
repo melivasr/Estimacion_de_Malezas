@@ -1,3 +1,15 @@
+"""
+Código de entrenamiento de modelo YOLO para clasificación de pastos.
+
+Realiza los siguientes pasos:
+1. Lee la ruta del dataset desde el archivo DATA_DIR.txt.
+2. Carga un modelo base YOLO para clasificación.
+3. Entrena el modelo usando los parámetros definidos.
+4. Los resultados del entrenamiento se guardan en la carpeta `runs`.
+
+- Para obtener resultados actualizados, se debe ejecutar nuevamente este script.
+- Asegúrate de haber descargado previamente el dataset y creado DATA_DIR.txt.
+"""
 from ultralytics import YOLO
 from pathlib import Path
 import os

@@ -1,3 +1,12 @@
+"""
+Códigos para descargar el dataset de pastos desde Roboflow y guardar la ruta local.
+
+1. Conecta con Roboflow usando la API_KEY.
+2. Selecciona el workspace, proyecto y versión del dataset.
+3. Descarga el dataset en formato de carpeta ("folder").
+4. Guarda la ruta local del dataset en DATA_DIR.txt para usarla en otros scripts.
+
+"""
 from pathlib import Path
 from roboflow import Roboflow
 import os
