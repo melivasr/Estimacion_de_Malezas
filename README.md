@@ -31,7 +31,7 @@ Este proyecto consiste en entrenar modelos de detección y clasificación para m
 - IDE recomendado: **VS Code**
 - Python instalado (recomendado >=3.9)
 - 
-Antes de ejecutar los scripts, asegúrate de tener instaladas las siguientes librerías:
+Antes de ejecutar los códigos, asegúrate de tener instaladas las siguientes librerías:
 
 ```bash
 pip install ultralytics roboflow opencv-python albumentations tqdm torch torchvision transformers pillow
@@ -44,7 +44,7 @@ pip install ultralytics roboflow opencv-python albumentations tqdm torch torchvi
 ### 1. Entrenamiento del modelo de detección
 **Archivo:** `Malezas/weed_detection.py`
 
-Este script hace lo siguiente:
+Este código hace lo siguiente:
 - Descarga el dataset desde Roboflow.
 - Carga el modelo base YOLO.
 - Entrena el modelo durante 50 epochs.
