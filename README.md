@@ -207,8 +207,8 @@ python Pastos/predict_dept.py
 4. `predict_dept.py`
 
 **Pastos:**
-1. `augment_pastos.py`
-2. `setup.py`
+1. `setup.py`
+2. `augment_pastos.py`
 3. `train.py`
 4. `test.py`
 5. `predict_dept.py`
@@ -217,4 +217,4 @@ python Pastos/predict_dept.py
 
 ## Notas
 
-- Asegúrese de tener suficientes recursos de hardware, ya que algunos scripts (entrenamiento y aumento de datos) pueden ser intensivos en CPU/GPU y memoria.
+- Asegúrese de tener suficientes recursos de hardware, ya que el entrenamiento puede ser intensivo en CPU/GPU y memoria.
