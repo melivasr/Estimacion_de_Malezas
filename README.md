@@ -10,6 +10,11 @@ Este proyecto consiste en entrenar modelos de detección y clasificación para m
 ├── Malezas/
 │   ├── weed_detection.py
 │   └── test.py
+├── Malezas_Segmentation/
+│   ├── predict_dept.py
+│   ├── predict_seg.py
+│   ├── setup.py
+│   └── train_seg.py
 ├── Pastos/
 │   ├── augment_pastos.py
 │   ├── predict_dept.py
@@ -63,20 +68,74 @@ python Malezas/test.py
 
 ---
 
-## Pastos
+## Malezas_Segmentation
 
-### 1. Aumento de imágenes
-**Archivo:** `Pastos/augment_pastos.py`
+### 1. Descargar dataset desde Roboflow
 
-- Realiza aumentos de datos (rotación, flip, recorte, brillo/contraste) sobre todas las subcarpetas de `Pastos-2/train`.
-- Configurable el número de aumentos por imagen (`N_AUG_PER_IMAGE`).
+**Archivo:** `Malezas_Segmentation/setup.py`
+
+* Descarga el dataset de segmentación desde Roboflow.
 
 **Ejecutar:**
+
 ```bash
-python Pastos/augment_pastos.py
+python Malezas_Segmentation/setup.py
 ```
 
-### 2. Descargar dataset desde Roboflow
+---
+
+### 2. Entrenamiento del modelo de segmentación
+
+**Archivo:** `Malezas_Segmentation/train_seg.py`
+
+* Usa el dataset descargado.
+* Entrena un modelo YOLO para segmentación de malezas.
+* Configurable base model, epochs, tamaño de imagen, batch, device, etc.
+
+**Ejecutar:**
+
+```bash
+python Malezas_Segmentation/train_seg.py
+```
+
+---
+
+### 3. Predicciones de segmentación
+
+**Archivo:** `Malezas_Segmentation/predict_seg.py`
+
+* Carga el modelo entrenado (`runs/train_seg/weights/best.pt`).
+* Realiza predicciones sobre imágenes de prueba en `Malezas-detection-2-1/test_images_train`.
+* Los resultados se guardan en `runs/segment/predict*/`.
+
+**Ejecutar:**
+
+```bash
+python Malezas_Segmentation/predict_seg.py
+```
+
+---
+
+### 4. Estimación de profundidad para segmentación
+
+**Archivo:** `Malezas_Segmentation/predict_dept.py`
+
+* Estima la profundidad de las imágenes usando `Intel/dpt-large`.
+* Genera mapas de profundidad visualizados en `runs/depth_viz`.
+
+**Ejecutar:**
+
+```bash
+python Malezas_Segmentation/predict_dept.py
+```
+
+---
+
+
+## Pastos
+
+
+### 1. Descargar dataset desde Roboflow
 **Archivo:** `Pastos/setup.py`
 
 - Descarga el dataset desde Roboflow.
@@ -85,6 +144,17 @@ python Pastos/augment_pastos.py
 **Ejecutar:**
 ```bash
 python Pastos/setup.py
+```
+
+### 2. Aumento de imágenes
+**Archivo:** `Pastos/augment_pastos.py`
+
+- Realiza aumentos de datos (rotación, flip, recorte, brillo/contraste) sobre todas las subcarpetas de `Pastos-2/train`.
+- Configurable el número de aumentos por imagen (`N_AUG_PER_IMAGE`).
+
+**Ejecutar:**
+```bash
+python Pastos/augment_pastos.py
 ```
 
 ### 3. Entrenamiento del modelo de clasificación
@@ -102,7 +172,7 @@ python Pastos/train.py
 ### 4. Predicciones con modelo entrenado
 **Archivo:** `Pastos/test.py`
 
-- Carga el modelo entrenado (`runs/train_cls_pastos5/weights/best.pt`).
+- Carga el modelo entrenado (`runs/train_cls_pastos/weights/best.pt`), esta ruta puede ajustarse dependiendo del entrenamiento.
 - Realiza predicciones sobre imágenes de prueba en `Pastos-2/pastos_test_images`.
 
 **Ejecutar:**
@@ -128,6 +198,13 @@ python Pastos/predict_dept.py
 **Malezas:**
 1. `weed_detection.py`
 2. `test.py`
+   
+**Malezas_Segmentation:**
+
+1. `setup.py`
+2. `train_seg.py`
+3. `predict_seg.py`
+4. `predict_dept.py`
 
 **Pastos:**
 1. `augment_pastos.py`
@@ -140,7 +217,7 @@ python Pastos/predict_dept.py
 
 ## Notas
 
-- Asegúrate de tener suficientes recursos de hardware, ya que algunos scripts (entrenamiento y aumento de datos) pueden ser intensivos en CPU/GPU y memoria.
+- Asegúrese de tener suficientes recursos de hardware, ya que algunos scripts (entrenamiento y aumento de datos) pueden ser intensivos en CPU/GPU y memoria.
 - Todas las rutas pueden configurarse de manera relativa para que el proyecto pueda correr entre distintas computadoras.
 - La subida a GitHub fue complicada debido a la gran cantidad de imágenes generadas en los procesos de entrenamiento y aumento.
 ```
