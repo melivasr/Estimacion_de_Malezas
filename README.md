@@ -218,5 +218,3 @@ python Pastos/predict_dept.py
 ## Notas
 
 - Asegúrese de tener suficientes recursos de hardware, ya que algunos scripts (entrenamiento y aumento de datos) pueden ser intensivos en CPU/GPU y memoria.
-- Todas las rutas pueden configurarse de manera relativa para que el proyecto pueda correr entre distintas computadoras.
-- La subida a GitHub fue complicada debido a la gran cantidad de imágenes generadas en los procesos de entrenamiento y aumento.
