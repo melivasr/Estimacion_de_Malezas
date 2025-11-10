@@ -8,7 +8,7 @@ Realiza los siguientes pasos:
 4. Los resultados del entrenamiento se guardan en la carpeta `runs`.
 
 - Para obtener resultados actualizados, se debe ejecutar nuevamente este script.
-- Asegúrate de haber descargado previamente el dataset y creado DATA_DIR.txt.
+- Asegúrese de haber descargado previamente el dataset y creado DATA_DIR.txt.
 """
 from ultralytics import YOLO
 from pathlib import Path
